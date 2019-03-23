@@ -1,0 +1,70 @@
+$transition_time:.2s;
+
+.carousel {
+  color:white;
+  .content {
+    display: flex;
+
+    .item {
+      width: 100%;
+      padding: .5em;
+      display: block;
+
+      transition: opacity 0.295s linear $transition_time;
+
+      &.visible {
+        opacity: 1;
+      }
+
+      .img {
+        width: 100%;
+        height: 200px;
+        display: block;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+
+  }
+
+  .ball {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+    border: 2px solid;
+    opacity: 0.5;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+
+  .click-area {
+    width: 50px;
+    text-align: center;
+
+    i {
+      font-size: 3em;
+    }
+  }
+}
+
+body {
+    font-family: 'Kanit', serif;
+  }
+
+.fab-carrinho {
+    position: fixed;
+    right: 0;
+    z-index: 1030; 
+    bottom: 5px;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+}
+ 
+  
+  
+  

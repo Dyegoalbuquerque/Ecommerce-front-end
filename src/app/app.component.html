@@ -1,0 +1,491 @@
+
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark deep-orange darken-4">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand >       
+        <h3 class="white-text text-center">
+            Salgaderia 
+            <mdb-icon fas icon="utensils"></mdb-icon>
+          </h3>
+    </mdb-navbar-brand>
+    <!-- Collapsible content -->
+    <links>
+        <div class="col-9"></div>
+    
+        <button  mdbBtn size="sm" color="white" type="button" class="" rounded="true"  mdbWavesEffect>
+          <span>Faça <b>login</b> ou <b>cadastre-se</b></span>
+       </button>  
+    
+    </links>
+    <!-- Collapsible content -->
+</mdb-navbar>
+<!--/.Navbar-->
+<button  mdbBtn class="fab-carrinho deep-orange darken-4" type="button" mdbWavesEffect>
+    <i class="fas fa-shopping-cart white-text"></i> 
+    &nbsp;<span>3</span>
+</button>
+
+<br/>
+
+<div class="container-fluid">
+
+    <div class="row">
+      
+      <div class="col-sm-12">
+        
+    <mdb-carousel  class="carousel slide" [animation]="'slide'">
+    <mdb-carousel-item>
+      <img style="height: 300px" class=" w-100" src="https://cdn.shopify.com/s/files/1/1081/8218/collections/Tabletop.jpg?v=1547159072" alt="First slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img style="height: 300px" class=" w-100" src="https://cdn.shopify.com/s/files/1/1081/8218/collections/Tabletop.jpg?v=1547159072" alt="Second slide">
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img style="height: 300px" class=" w-100" src="https://cdn.shopify.com/s/files/1/1081/8218/collections/Tabletop.jpg?v=1547159072" alt="Third slide">
+    </mdb-carousel-item>
+    </mdb-carousel>
+  
+      </div>
+      <div class="w-responsive mx-auto p-3 mt-2">
+          <mdb-card>
+              <mdb-card-body>
+                <div class="row">
+                <div class="col-md-12">
+       
+                  <div class="row">  
+                    <div class="col-md-4">
+                      <span class="grey-text">Tempo de espera</span>
+                      <br/>
+                      <span>180 a 220 min</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="grey-text">Taxa de entrega</span>
+                        <br/>
+                        <span>a partir de R$ 2,00</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="grey-text">Fechado &nbsp;&nbsp;</span>
+                        <mdb-icon fas class="red-text" icon="circle"></mdb-icon>
+                        <br/>
+                        <span>Agende seu pedido</span>
+                    </div>
+                  </div>
+                            
+                  <br/>
+
+                  <div class="row ">  
+                      <div class="col-md-7">
+                          <h6 class="">
+                              <mdb-icon fas icon="map-marker-alt"></mdb-icon>
+                              &nbsp;&nbsp;
+                              <span class="grey-text">
+                                Rua 02, 180 - Conjunto Hermes Pereira / Barra do ceará  | Fortaleza-CE 
+                             </span>
+                          </h6>
+                      </div>                    
+                      
+                      <div class="col-md-5">
+                          <h6 class="">
+                              <mdb-icon fas icon="phone"></mdb-icon>
+                              &nbsp;&nbsp;
+                              <span class="grey-text">
+                                (85)3238.8297 / (85)98767.4061
+                            </span>
+                          </h6>
+                      </div>
+                     
+                                                        
+                  </div>
+                </div>
+
+                </div>
+              </mdb-card-body>
+            </mdb-card>
+      </div>
+      
+    </div>
+</div>
+<br/>
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-2"><h5 class="text-center"><b>Kits de salgados</b></h5></div>
+<div class="col-sm-8"><hr></div>
+<div class="col-sm-1"></div>
+</div>
+
+<br/>
+
+<div class="container">
+    <ngx-hm-carousel
+    [(ngModel)]="currentIndexKitSalgados"
+    [show-num]="showNum"
+    [autoplay-speed]="speed"
+    [infinite]="infinite"
+    [drag-many]="true"
+    [aniTime]="200"
+    [data]="avatars"
+    class="carousel c-accent">
+  
+    <section ngx-hm-carousel-container class="content">
+      <article class="item cursor-pointer"
+        ngx-hm-carousel-item
+        *ngFor="let avatar of avatars; let i = index"
+          [ngClass]="{'visible': currentIndex===i}">
+          
+        <div class="img rounded" [style.backgroundImage]="'url('+avatar.url+')'"> 
+        </div>
+          <div class="text-center py-2">         
+              <p><b class="text-black-50">bolo de chocolate</b>
+                <br/>
+                 <b class="text-black-50">R$ 78</b>
+              </p>                    
+            <button type="button" (click)="frame.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+                <i class="fas fa-shopping-cart white-text "></i>  
+                &nbsp; Adicionar
+            </button>
+          </div>
+      </article>
+      <ng-template #infiniteContainer></ng-template>
+    </section>
+  
+    <!-- only using in infinite mode or autoplay mode, that will render with-->
+    <ng-template #carouselContent let-avatar let-i="index">
+      <article class="item cursor-pointer"
+        [ngClass]="{'visible': currentIndex===i}">
+        <div class="img rounded" [style.backgroundImage]="'url('+avatar.url+')'"> 
+        </div>
+        <div class="text-center py-2">         
+            <p><b class="text-black-50">bolo de chocolate</b>
+              <br/>
+               <b class="text-black-50">R$ 78</b>
+            </p>                    
+          <button type="button" (click)="frame.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+              <i class="fas fa-shopping-cart white-text "></i>  
+              &nbsp; Adicionar
+          </button>
+        </div>
+       
+      </article>
+    </ng-template>
+  
+    <ng-template #carouselPrev>
+      <div class="click-area">
+        <i class="material-icons"><i class="fas fa-angle-left fa-2x gray"></i></i>
+      </div>
+    </ng-template>
+    <ng-template #carouselNext>
+      <div class="click-area">
+        <i class="material-icons"><i class="fas fa-angle-right fa-2x"></i></i>
+      </div>
+    </ng-template>  
+
+     
+  </ngx-hm-carousel>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2"><h5 class="text-center"><b>Bebidas</b></h5></div>
+    <div class="col-sm-8"><hr></div>
+    <div class="col-sm-1"></div>
+</div>
+    
+<br/>
+
+<div class="container">
+    <ngx-hm-carousel
+    [(ngModel)]="currentIndexBebidas"
+    [show-num]="showNum"
+    [autoplay-speed]="speed"
+    [infinite]="infinite"
+    [drag-many]="true"
+    [aniTime]="200"
+    [data]="avatars"
+    class="carousel c-accent">
+  
+    <section ngx-hm-carousel-container class="content">
+      <article class="item cursor-pointer"
+        ngx-hm-carousel-item
+        *ngFor="let avatar of avatars; let i = index"
+          [ngClass]="{'visible': currentIndex===i}">
+          
+        <div class="img rounded" [style.backgroundImage]="'url('+avatar.url+')'"> 
+          </div>
+          <div class="text-center py-2">         
+              <p><b class="text-black-50">bolo de chocolate</b>
+                <br/>
+                 <b class="text-black-50">R$ 78</b>
+              </p>                    
+            <button type="button" (click)="frame.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+                <i class="fas fa-shopping-cart white-text "></i>  
+                &nbsp; Adicionar
+            </button>
+          </div>
+      </article>
+      <ng-template #infiniteContainer></ng-template>
+    </section>
+  
+    <!-- only using in infinite mode or autoplay mode, that will render with-->
+    <ng-template #carouselContent let-avatar let-i="index">
+      <article class="item cursor-pointer"
+        [ngClass]="{'visible': currentIndex===i}">
+        <div class="img rounded" [style.backgroundImage]="'url('+avatar.url+')'"> 
+        </div>
+        <div class="text-center py-2">         
+            <p><b class="text-black-50">bolo de chocolate</b>
+              <br/>
+               <b class="text-black-50">R$ 78</b>
+            </p>                    
+          <button type="button" (click)="frame.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+              <i class="fas fa-shopping-cart white-text "></i>  
+              &nbsp; Adicionar
+          </button>
+        </div>
+       
+      </article>
+    </ng-template>
+  
+    <ng-template #carouselPrev>
+      <div class="click-area">
+        <i class="material-icons"><i class="fas fa-angle-left fa-2x gray"></i></i>
+      </div>
+    </ng-template>
+    <ng-template #carouselNext>
+      <div class="click-area">
+        <i class="material-icons"><i class="fas fa-angle-right fa-2x"></i></i>
+      </div>
+    </ng-template>  
+
+     
+  </ngx-hm-carousel>
+</div>
+
+<br/>
+
+<div class="row">
+   <div class="col-md-5"></div>
+   <div class="col-md-2 text-center">
+      <div class="fab">
+          <button class="main">
+          </button>
+      
+        </div>
+   </div>
+   <div class="col-md-5"></div>
+   
+</div>
+
+<div class="container-fluid grey lighten-3">
+      <br/>
+      <form>
+        <div class="row">
+          <div  class="col-md-3"></div>
+          <div  class="col-md-6">
+          <h5 class="text-justify">
+            <span class="text-black"><b>Cadastre-se</b></span> 
+            na nossa newsletter e receba novidades das coxinhas mais deliciosas do Brasil!
+          </h5>
+        </div>
+        <div class="col-md-3"></div>
+        </div>
+        <br/>
+    <!-- Grid row --> 
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="input-group mb-3 col-sm-6">
+            <input type="text" class="form-control" placeholder="email" aria-label="email"
+              aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button type="button" class="m-0 px-3 py-2" mdbBtn color="mdb-color" mdbWavesEffect>
+                Enviar
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            </div>
+    </div>
+  </form>
+  <br/>
+  
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small align-top deep-orange darken-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mx-auto">
+
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Formas de pagamento</h5>
+          <ul class="list-unstyled">
+              <li>
+                  <a href="#!">
+                      <mdb-icon fab icon="cc-mastercard" size="2x" class="white-text mr-md-2 mr-2"></mdb-icon>
+                      </a>
+                      <a href="#!">
+                          <mdb-icon fab icon="cc-mastercard" size="2x" class="white-text mr-md-2 mr-2"></mdb-icon>
+                          </a>
+                           <a href="#!">
+                  <mdb-icon fab icon="cc-mastercard" size="2x" class="white-text mr-md-2 mr-2"></mdb-icon>
+                  </a>
+                  <a href="#!">
+                  <mdb-icon fab icon="cc-mastercard" size="2x" class="white-text mr-md-2 mr-2"></mdb-icon>
+                  </a>
+              </li>       
+            </ul>
+
+        </div>
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mx-auto">
+
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Site seguro</h5>
+
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Termos e condições de uso</a>
+            </li>
+            <li>
+              <a href="#!">Very long link 2</a>
+            </li>
+            <li>
+              <a href="#!">Very long link 3</a>
+            </li>
+              <li>
+              <a href="#!">Very long link 2</a>
+            </li>
+            <li>
+              <a href="#!">Very long link 3</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 mx-auto">
+
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Termos de uso</h5>
+
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Very long link 1</a>
+            </li>
+            <li>
+              <a href="#!">Very long link 2</a>
+            </li>
+            <li>
+              <a href="#!">Very long link 3</a>
+            </li>
+            <li>
+                <a href="#!">Very long link 1</a>
+              </li>
+              <li>
+                <a href="#!">Very long link 2</a>
+              </li>
+              <li>
+                <a href="#!">Very long link 3</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+        <a><mdb-icon fab icon="facebook" size="2x" class="white-text mr-md-2 mr-2"></mdb-icon></a>
+
+        <a><mdb-icon fab icon="instagram" size="2x" class="white-text mr-md-2 mr-2"></mdb-icon></a>
+        
+        Rua 02, 180 - Conjunto Hermes Pereira / Barra do ceará
+
+        | © 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/angular/"> salgaderia.com</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+  <!-- Footer -->
+
+  <!--Modal-->
+
+
+<div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class=" text-right">
+    <button type="button"  size="sm" class="text-dark" mdbBtn color="white" mdbWavesEffect  (click)="frame.hide()">
+        <mdb-icon fas icon="times"></mdb-icon>
+      </button>
+  </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-lg-3">
+   
+            <img height="200" class="w-100 rounded" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(23).jpg"
+                alt="First slide">
+        </div>
+        <div class="col-lg-7">
+          <h2 class="h2-responsive product-name">
+            <strong>Bolo de chocolate</strong>
+          </h2>
+          <h4 class="h4-responsive">
+            <span class="green-text">
+              <strong>R$ 49</strong>
+            </span>
+          </h4>
+
+          <!--Accordion wrapper-->
+          <mdb-squeezebox [multiple]="false" aria-multiselectable="true">
+            <mdb-item [collapsed]="true" *ngFor="let item of itemsList">
+              <mdb-item-head> {{ item.title }} </mdb-item-head>
+              <mdb-item-body> {{ item.description }} </mdb-item-body>
+            </mdb-item>
+          </mdb-squeezebox>
+          <!--/.Accordion wrapper-->
+
+          <!-- Add to Cart -->
+          <div class="card-body">
+              <div class="text-center">
+                  <button type="button"  size="sm" class="text-dark mt-0" mdbBtn color="red" outline="true" mdbWavesEffect>                     
+                      <mdb-icon fas icon="minus"></mdb-icon>
+                  </button>
+                  <input class="col-md-2 py-1 text-center" type="text" value="1"/>
+                  <button type="button" size="sm" class="text-dark mt-0" mdbBtn color="success" outline="true" mdbWavesEffect>  
+                      <mdb-icon fas icon="plus"></mdb-icon>
+                  </button>
+              </div>
+              <br/>
+            <div class="text-center">
+
+                <button type="button" (click)="frame.hide(); showSuccess()"  class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+                    <i class="fas fa-shopping-cart white-text "></i>  
+                    &nbsp; Adicionar
+                </button>
+            </div>
+          </div>
+          <!-- /.Add to Cart -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
