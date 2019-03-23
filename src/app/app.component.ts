@@ -12,6 +12,7 @@ export class AppComponent  implements OnInit {
     currentIndexKitSalgados = 0;
     currentIndexBebidas = 0;
     speed = 5000;
+    
     infinite = true;
     direction = 'right';
     directionToggle = true;
