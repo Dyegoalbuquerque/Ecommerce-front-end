@@ -21,7 +21,7 @@
     <!-- Collapsible content -->
 </mdb-navbar>
 <!--/.Navbar-->
-<button  mdbBtn class="fab-carrinho deep-orange darken-4" type="button" mdbWavesEffect>
+<button  mdbBtn class="fab-carrinho deep-orange darken-4" type="button" (click)="modalCarrinho.show()" mdbWavesEffect>
     <i class="fas fa-shopping-cart white-text"></i> 
     &nbsp;<span>3</span>
 </button>
@@ -141,7 +141,7 @@
                 <br/>
                  <b class="text-black-50">R$ 78</b>
               </p>                    
-            <button type="button" (click)="frame.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+            <button type="button" (click)="modalProduto.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
                 <i class="fas fa-shopping-cart white-text "></i>  
                 &nbsp; Adicionar
             </button>
@@ -161,7 +161,7 @@
               <br/>
                <b class="text-black-50">R$ 78</b>
             </p>                    
-          <button type="button" (click)="frame.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+          <button type="button" (click)="modalProduto.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
               <i class="fas fa-shopping-cart white-text "></i>  
               &nbsp; Adicionar
           </button>
@@ -220,7 +220,7 @@
                 <br/>
                  <b class="text-black-50">R$ 78</b>
               </p>                    
-            <button type="button" (click)="frame.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+            <button type="button" (click)="modalProduto.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
                 <i class="fas fa-shopping-cart white-text "></i>  
                 &nbsp; Adicionar
             </button>
@@ -240,7 +240,7 @@
               <br/>
                <b class="text-black-50">R$ 78</b>
             </p>                    
-          <button type="button" (click)="frame.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+          <button type="button" (click)="modalProduto.show()" size="sm" class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
               <i class="fas fa-shopping-cart white-text "></i>  
               &nbsp; Adicionar
           </button>
@@ -426,13 +426,13 @@
   <!--Modal-->
 
 
-<div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div mdbModal #modalProduto="mdbModal" class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
 
 <div class="modal-dialog modal-lg" role="document">
   <div class="modal-content">
     <div class=" text-right">
-    <button type="button"  size="sm" class="text-dark" mdbBtn color="white" mdbWavesEffect  (click)="frame.hide()">
+    <button type="button"  size="sm" class="text-dark" mdbBtn color="white" mdbWavesEffect  (click)="modalProduto.hide()">
         <mdb-icon fas icon="times"></mdb-icon>
       </button>
   </div>
@@ -476,7 +476,7 @@ aria-hidden="true">
               <br/>
             <div class="text-center">
 
-                <button type="button" (click)="frame.hide(); showSuccess()"  class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
+                <button type="button" (click)="modalProduto.hide(); showSuccess()"  class="text-dark mt-0" mdbBtn color="dark" mdbWavesEffect>
                     <i class="fas fa-shopping-cart white-text "></i>  
                     &nbsp; Adicionar
                 </button>
@@ -488,4 +488,128 @@ aria-hidden="true">
     </div>
   </div>
 </div>
+</div>
+
+
+<div mdbModal #modalCarrinho="mdbModal" class="modal fade" id="modalCarrinho" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">
+            <i class="fas fa-shopping-cart dark-text"></i> &nbsp;
+            Meu carrinho
+          </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalCarrinho.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+
+        <table class="table table-hover" mdbTableScroll scrollY="true" maxHeight="200" bordered="true">
+          <thead>
+            <tr colspan="4">             
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <img height="50" width="50" src="https://t1.rg.ltmcdn.com/pt/images/0/0/3/img_bolo_de_chocolate_vulcao_6300_600.jpg"/>
+              </th>
+              <td>Bolo de chocolate com cobertuda de leite cremoso e com recheio de doce de leite</td>
+              <td>R$ 100,00</td>
+              <td>
+                <a>
+                  <i class="fas fa-times"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                  <img height="50" width="50" src="https://t1.rg.ltmcdn.com/pt/images/0/0/3/img_bolo_de_chocolate_vulcao_6300_600.jpg"/>         
+              </th>
+              <td>Bolo de chocolate com cobertuda de leite cremoso e com recheio de doce de leite</td>
+              <td>R$ 100,00</td>
+              <td>
+                <a>
+                  <i class="fas fa-times"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <img height="50" width="50" src="https://t1.rg.ltmcdn.com/pt/images/0/0/3/img_bolo_de_chocolate_vulcao_6300_600.jpg"/>         
+                </th>
+                <td>Bolo de chocolate com cobertuda de leite cremoso e com recheio de doce de leite</td>
+                <td>R$ 100,00</td>
+              <td>
+                <a>
+                  <i class="fas fa-times"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                  <img height="50" width="50" src="https://t1.rg.ltmcdn.com/pt/images/0/0/3/img_bolo_de_chocolate_vulcao_6300_600.jpg"/>
+                </th>
+                <td>Bolo de chocolate com cobertuda de leite cremoso e com recheio de doce de leite</td>
+                <td>R$ 100,00</td>
+                <td>
+                  <a>
+                    <i class="fas fa-times"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                  <th scope="row">
+                    <img height="50" width="50" src="https://t1.rg.ltmcdn.com/pt/images/0/0/3/img_bolo_de_chocolate_vulcao_6300_600.jpg"/>
+                  </th>
+                  <td>Bolo de chocolate com cobertuda de leite cremoso e com recheio de doce de leite</td>
+                  <td>R$ 100,00</td>
+                  <td>
+                    <a>
+                      <i class="fas fa-times"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                      <img height="50" width="50" src="https://t1.rg.ltmcdn.com/pt/images/0/0/3/img_bolo_de_chocolate_vulcao_6300_600.jpg"/>
+                    </th>
+                    <td>Bolo de chocolate com cobertuda de leite cremoso e com recheio de doce de leite</td>
+                    <td>R$ 100,00</td>
+                    <td>
+                      <a>
+                        <i class="fas fa-times"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                      <th scope="row">
+                        <img height="50" width="50" src="https://t1.rg.ltmcdn.com/pt/images/0/0/3/img_bolo_de_chocolate_vulcao_6300_600.jpg"/>
+                      </th>
+                      <td>Bolo de chocolate com cobertuda de leite cremoso e com recheio de doce de leite</td>
+                      <td>R$ 100,00</td>
+                      <td>
+                        <a>
+                          <i class="fas fa-times"></i>
+                        </a>
+                      </td>
+                  </tr>
+          </tbody>
+        </table>
+        <br/>
+        <div class="alert alert-secondary text-right" role="alert">
+            <span>Total R$ <b>1.200,00</b></span> 
+          </div>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="dark" outline="true" class="waves-light" mdbWavesEffect data-dismiss="modal" (click)="modalCarrinho.hide()">Fechar</button>
+        <button mdbBtn color="dark" class="waves-light" mdbWavesEffect>Finalizar compra</button>
+      </div>
+    </div>
+  </div>
 </div>
